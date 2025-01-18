@@ -1,8 +1,11 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt3-electron-starter",
   "private": true,
   "type": "module",
   "main": "electron/main.js",
+  "version": "0.0.1",
+  "description": "This will quickly get you up and running if you want to build an app with Nuxt 3 and Electron ",
+  "author": "Rami James <ramijames@gmail.com>",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
