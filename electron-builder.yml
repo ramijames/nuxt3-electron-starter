@@ -1,0 +1,10 @@
+appId: com.yourname.yourapp
+productName: YourAppName
+directories:
+  output: dist_electron
+files:
+  - .output/**
+  - electron/**
+mac:
+  target:
+    - dmg
