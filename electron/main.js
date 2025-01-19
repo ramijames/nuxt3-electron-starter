@@ -2,18 +2,28 @@ import { app, BrowserWindow } from 'electron';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import sequelize from './database.js'; 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 let mainWindow;
 
-app.on('ready', () => {
+app.on('ready', async () => {
+
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+    await sequelize.sync();
+  } catch (error) {
+    console.error(error);
+  }
+
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 768,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Optional if needed
+      // preload: path.join(__dirname, 'preload.js'), // Optional if needed
       contextIsolation: true,
       nodeIntegration: false,
     },
